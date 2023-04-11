@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">
+{% csrf_token %}
+<h1>{{ item.name }}</h1> Цена: {{ item.price }} сомов
+        <ol>
+    {% for purchase in item.purchase_set.all %}
+
+            <li>Имя: {{ purchase.name }} - Возраст: {{ purchase.age }}</li>
+    {% endfor %}
+
+        </ol>
+</form>
+
+{% endblock content %}
